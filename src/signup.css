@@ -1,0 +1,70 @@
+.vector2{
+    background: url('./signup.svg');
+    background-size: 140%;
+    background-position:0  20vh;
+    height: auto;
+    background-repeat: no-repeat;
+  }
+  .signupBody{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 700px;
+    background-size: 10%;
+    height: 80vh;
+    margin: auto auto;
+    background: #f7f6f6;
+    border-radius: 5px;
+    margin-top: 10vh;
+    box-shadow: 10px 10px 8px #d6d6d6;
+  }
+  
+  .name input, .email input, .passwordSignup input, .username input, .confirmp input{
+    width: 20vw;
+    border: none;
+    background-color: #dbdbdb;
+    height: 5vh;
+    border-radius: 20px;
+    padding: 3px;
+    text-align: left;
+    margin: 2vh auto;
+    font-size: 15px;
+  }
+   .email, .passwordSignup, .confirmp, .btnsignup{
+    place-items: center;
+    align-items: center;
+    height: auto;
+   }
+  input:focus{
+    outline: none;
+  }
+  .signup label{
+    height: none;
+  }
+  .signup-button{
+    width: 20vw ;
+    border: none;
+    background-color: #7c36ec;
+    height: 6vh;
+    padding: 10px;
+    color: #ebeaea;
+    border-radius: 20px;
+    padding: 3px;
+    text-align: left;
+    font-size: 17px;
+    text-align: center;
+    margin: 2vh auto;
+  }
+  .signuph2{
+    text-align: center;
+    font-size: 30px;
+  }
+  .errormsg{
+    color: red;
+    text-align: center;
+    display: none;
+    background: #ff000038;
+    height: 40px;
+    place-items: center;
+    width: 90%;
+    margin: auto auto;
+  }

@@ -1,13 +1,8 @@
-import Profile from "./profile";
-import Signup from "./signUp";
-import app from "./firebase";
-import Homepage from "./homepage";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+const app = () => {
   const firebaseConfig = {
     apiKey: "AIzaSyD6oUPmXIvDpU0soh7ZNEFDkAQvLgJtCcY",
     authDomain: "profile-account-931d0.firebaseapp.com",
@@ -20,6 +15,7 @@ function App() {
   initializeApp(firebaseConfig);
 
   const db = getFirestore();
+  const auth = getAuth();
 
   const colRef = collection(db, "accounts");
 
@@ -31,15 +27,16 @@ function App() {
     console.log(accounts);
   });
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="homepage" element={<Homepage />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+  const signupform = document.querySelector("#signup");
+  signupform.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = signupform.email.value;
+    const password = signupform.password.value;
+    createUserWithEmailAndPassword(auth, email, password).then((cred) => {
+      console.log("user created", cred.user);
+      signupform.reset();
+    });
+  });
+};
 
-export default App;
+export default app;

@@ -1,0 +1,96 @@
+form label{
+    text-align: center;
+    transform: translateY(-5vh);
+    position: relative;
+    bottom: 6vh;
+  }
+  .form-login .login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50vw;
+    background-size: 10%;
+    height: 80vh;
+    margin: auto auto;
+    background: #f7f6f6;
+    border-radius: 5px;
+    transform: translateY(10vh);
+    box-shadow: 10px 10px 8px #d6d6d6;
+  }
+  .vector{
+    background: url('./background1.svg');
+    background-size: 100%;
+    background-position:0  20vh;
+    height: auto;
+    background-repeat: no-repeat;
+  }
+  .login-content{
+    display: grid;
+    text-align: center;
+    place-items: center;
+    color: #000;
+    font-size: 15px;
+  }
+  .email-username{
+    display: grid;
+    margin: 10px 0;
+  }
+  
+  
+  .email-username input{
+    width: 20vw;
+    border: none;
+    height: 30px;
+    background-color: #dbdbdb;
+    border-radius: 20px;
+    padding: 3px;
+    text-align: left;
+    font-size: 18px;
+  }
+  .email-username input:focus {
+    outline: none;
+  }
+  .password{
+    display: grid;
+    margin: 10px 0;
+  }
+  .lock {
+    height: 20px;
+    width: 20px;
+  }
+  .password input{
+    width: 20vw;
+    border: none;
+    background-color: #dbdbdb;
+    height: 30px;
+    border-radius: 20px;
+    padding: 3px;
+    text-align: left;
+    font-size: 18px;
+  }
+  .password input:focus{
+    outline: none;
+  }
+  .login-button{
+    width: 20vw;
+    border: none;
+    background-color: #7c36ec;
+    height: 22px;
+    color: #ebeaea;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    top: 6vh;
+    font-size: 19px;
+    text-align: center;
+  }
+  .sign-up-link{
+    font-size: 10px;
+    transform: translateY( 17vh);
+  }
+  .sign-up-link a{
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
