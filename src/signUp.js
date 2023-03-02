@@ -2,10 +2,13 @@ import { ReactComponent as SignUp } from "./signup.svg";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { documentId } from "firebase/firestore";
 import { ReactComponent as Lock } from "./lock.svg";
-import { useState } from "react";
+import { useState, createContext } from "react";
+export const MyContext = createContext();
 const Signup = () => {
   const auth = getAuth();
   const [error, setError] = useState();
+  const [password, setPassword] = useState();
+  const [confirmpassword, setConfirmPassword] = useState();
   const handleSubmit = (event) => {
     if (
       document.getElementById("signuppassword").value ===
@@ -19,6 +22,8 @@ const Signup = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log("User created:", user);
+          MyContext.value = user.uid;
+          console.log(MyContext.value );
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -31,6 +36,8 @@ const Signup = () => {
       console.log("please input the same password");
       event.preventDefault();
       setError("please input the same password");
+      setPassword("");
+      setConfirmPassword("");
       document.querySelector(".errormsg").style.display = "grid";
     }
   };
@@ -49,11 +56,27 @@ const Signup = () => {
             </div>
             <div className="passwordSignup" name="password">
               <label htmlFor="signuppassword"></label>
-              <input type="password" id="signuppassword" required />
+              <input
+                type="password"
+                id="signuppassword"
+                required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </div>
             <div className="confirmp">
               <label htmlFor="confirmpassword"></label>
-              <input type="password" id="confirmpassword" requires />
+              <input
+                type="password"
+                id="confirmpassword"
+                required
+                value={confirmpassword}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+              />
             </div>
             <div className="btnsignup">
               <button className="signup-button" type="submit">

@@ -7,6 +7,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { createContext } from "react";
+import { MyContext } from "./signUp";
 
 const Profile = () => {
   const auth = getAuth();
@@ -19,7 +21,10 @@ const Profile = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("User created:", user);
+        console.log("User logged in:", user);
+        console.log(user.uid);
+        MyContext.value = user.uid;
+        console.log(MyContext.value);
         navigate("homepage");
       })
       .catch((error) => {
@@ -36,18 +41,10 @@ const Profile = () => {
           <form onSubmit={handleLogin}>
             <label className="title">MEMBER LOGIN</label>
             <div className="email-username">
-              <input
-                type="text"
-                placeholder="Email or Username"
-                id="loginmail"
-              ></input>
+              <input type="text" id="loginmail"></input>
             </div>
             <div className="password">
-              <input
-                type="password"
-                placeholder="Password"
-                id="loginpassword"
-              ></input>
+              <input type="password" id="loginpassword"></input>
             </div>
             <button className="login-button" type="submit">
               Login
