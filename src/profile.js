@@ -22,7 +22,6 @@ const Profile = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("User logged in:", user);
-        console.log(user.uid);
         MyContext.value = user.uid;
         console.log(MyContext.value);
         navigate("homepage");
